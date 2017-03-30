@@ -11,6 +11,7 @@ if 'TRAFFIC_LIGHT_COUNTRY' in os.environ:
 	# TODO check value is us or uk
 else:
 	print('TRAFFIC_LIGHT_COUNTRY should be set to UK or USA')
+	sys.exit(1)
 
 # Setup
 GPIO.setmode(GPIO.BCM)
