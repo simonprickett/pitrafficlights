@@ -1,6 +1,7 @@
 import RPi.GPIO as GPIO
 import time
 import signal
+import sys
 
 # Setup
 GPIO.setmode(GPIO.BCM)
@@ -9,15 +10,16 @@ GPIO.setup(10, GPIO.OUT)
 GPIO.setup(11, GPIO.OUT)
 
 # Turn off all lights when user ends demo
-def allLightsOff(signal, frame):
+def allLightsOff(signal = None, frame = None):
 	GPIO.output(9, False)
 	GPIO.output(10, False)
 	GPIO.output(11, False)
+	sys.exit(0)
 
 signal.signal(signal.SIGINT, allLightsOff)
 
 # Start with the lights off
-allLightsOff(NULL, NULL)
+allLightsOff()
 
 # Loop forever
 while True:
