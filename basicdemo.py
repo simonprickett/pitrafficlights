@@ -14,7 +14,9 @@ def allLightsOff(signal = None, frame = None):
 	GPIO.output(9, False)
 	GPIO.output(10, False)
 	GPIO.output(11, False)
-	sys.exit(0)
+	
+	if (signal != None):
+		sys.exit(0)
 
 signal.signal(signal.SIGINT, allLightsOff)
 
