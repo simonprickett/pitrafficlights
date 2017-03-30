@@ -4,9 +4,13 @@ import os
 import signal
 import sys
 
-# TODO fix crash when env var not set
-pattern = os.environ['TRAFFIC_LIGHT_COUNTRY']
-pattern = pattern.lower()
+if 'TRAFFIC_LIGHT_COUNTRY' in os.environ:
+	pattern = os.environ['TRAFFIC_LIGHT_COUNTRY']
+	pattern = pattern.lower()
+
+	# TODO check value is us or uk
+else:
+	print('TRAFFIC_LIGHT_COUNTRY should be set to UK or USA')
 
 # Setup
 GPIO.setmode(GPIO.BCM)
