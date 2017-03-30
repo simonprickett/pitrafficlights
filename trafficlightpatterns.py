@@ -13,10 +13,19 @@ GPIO.setup(9, GPIO.OUT)
 GPIO.setup(10, GPIO.OUT)
 GPIO.setup(11, GPIO.OUT)
 
-# Turn off all lights in case any are on from prior use
-GPIO.output(9, False)
-GPIO.output(10, False)
-GPIO.output(11, False)
+# Turn off all lights when user ends demo
+def allLightsOff(signal = None, frame = None):
+	GPIO.output(9, False)
+	GPIO.output(10, False)
+	GPIO.output(11, False)
+	
+	if (signal != None):
+		sys.exit(0)
+
+signal.signal(signal.SIGINT, allLightsOff)
+
+# Start with the lights off
+allLightsOff()
 
 # Loop forever
 while True:
