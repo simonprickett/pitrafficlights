@@ -1,11 +1,12 @@
 import RPi.GPIO as GPIO
 import time
 import os
+import signal
+import sys
 
+# TODO fix crash when env var not set
 pattern = os.environ['TRAFFIC_LIGHT_COUNTRY']
 pattern = pattern.lower()
-
-print pattern
 
 # Setup
 GPIO.setmode(GPIO.BCM)
