@@ -21,9 +21,6 @@ def allLightsOff(signal = None, frame = None):
 
 signal.signal(signal.SIGINT, allLightsOff)
 
-# Start with the lights off
-allLightsOff()
-
 # Loop forever
 while True:
 	# Red
