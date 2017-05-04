@@ -10,14 +10,12 @@ GPIO.setup(10, GPIO.OUT)
 GPIO.setup(11, GPIO.OUT)
 
 # Turn off all lights when user ends demo
-def allLightsOff(signal = None, frame = None):
+def allLightsOff():
 	GPIO.output(9, False)
 	GPIO.output(10, False)
 	GPIO.output(11, False)
-
-	if (signal != None):
-		GPIO.cleanup()
-		sys.exit(0)
+	GPIO.cleanup()
+	sys.exit(0)
 
 signal.signal(signal.SIGINT, allLightsOff)
 
