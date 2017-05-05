@@ -32,7 +32,7 @@ while True:
 	GPIO.output(9, True)
 	time.sleep(3)
 	
-	# Red and amber for UK only, sleep longer for US
+	# Red and amber for UK only
 	if (pattern == 'uk'):
 		GPIO.output(10, True)
 
