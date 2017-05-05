@@ -4,11 +4,8 @@ import os
 import signal
 import sys
 
-if 'TRAFFIC_LIGHT_COUNTRY' in os.environ:
-	pattern = os.environ['TRAFFIC_LIGHT_COUNTRY']
-	pattern = pattern.lower()
-
-	# TODO check value is us or uk
+if ('TRAFFIC_LIGHT_COUNTRY' in os.environ) and (os.environ['TRAFFIC_LIGHT_COUNTRY'] in ['UK', 'USA']):
+	pattern = os.environ['TRAFFIC_LIGHT_COUNTRY'].lower()
 else:
 	print('TRAFFIC_LIGHT_COUNTRY should be set to UK or USA')
 	sys.exit(1)
@@ -20,19 +17,14 @@ GPIO.setup(10, GPIO.OUT)
 GPIO.setup(11, GPIO.OUT)
 
 # Turn off all lights when user ends demo
-def allLightsOff(signal = None, frame = None):
+def allLightsOff():
 	GPIO.output(9, False)
 	GPIO.output(10, False)
 	GPIO.output(11, False)
-
-	if (signal != None):
-		GPIO.cleanup()
-		sys.exit(0)
+	GPIO.cleanup()
+	sys.exit(0)
 
 signal.signal(signal.SIGINT, allLightsOff)
-
-# Start with the lights off
-allLightsOff()
 
 # Loop forever
 while True:
