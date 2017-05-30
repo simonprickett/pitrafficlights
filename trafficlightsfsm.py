@@ -77,10 +77,8 @@ while True:
 		GPIO.output(TrafficLightLEDs.GREEN, False)
 		
 		if pattern == 'uk':
-			# Short wait
 			time.sleep(2)
 		else:
-			# Longer wait
 			time.sleep(3)
 
 		currentState = TrafficLightStates.RED
