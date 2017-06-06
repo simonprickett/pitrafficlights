@@ -1,4 +1,4 @@
-# pitrafficlights
+# Playing with Raspberry Pi: Traffic Lights
 
 Experiments with [Low Voltage Labs Raspberry Pi Traffic Lights](http://lowvoltagelabs.com/products/pi-traffic/).
 
